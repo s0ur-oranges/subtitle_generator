@@ -1,4 +1,5 @@
 moviepy==2.0.0.dev2
 imageio==2.25.1
 pysrt==1.1.2
+numpy==1.24
 git+https://github.com/openai/whisper.git
