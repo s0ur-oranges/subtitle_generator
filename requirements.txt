@@ -22,15 +22,5 @@ soupsieve==2.3.2.post1
 streamlit==0.88.0
 sympy==1.11.1
 tensorflow==2.11.0
-tensorflow-estimator==2.11.0
-tensorflow-intel==2.11.0
-tensorflow-io-gcs-filesystem==0.24.0
-termcolor==1.1.0
-terminado==0.15.0
-tf-estimator-nightly==2.8.0.dev2021122109
 transformers @ git+https://github.com/huggingface/transformers@ba695c1efd55091e394eb59c90fb33ac3f9f0d41
 typing_extensions==4.6.3
-
-yarl==1.9.2
-zipp==3.7.0
-zope.interface==6.0
