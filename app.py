@@ -9,10 +9,8 @@ srtfilename = "subtitles.txt"
 mp4filename = "video.mp4"
 
 import sys
-import pysrt
 import os
 import subprocess
-from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 import streamlit as st
 from faster_whisper import WhisperModel
 import time
