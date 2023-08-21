@@ -6,7 +6,7 @@
 
 # Place files in this path or modify the paths to point to where the files are
 srtfilename = "subtitles.txt"
-mp4filename = "Apna Bana Le Song Full Screen-(MirchiStatus.com).mp4"
+mp4filename = "video.mp4"
 
 import sys
 import pysrt
@@ -14,8 +14,8 @@ import os
 import subprocess
 from moviepy.editor import VideoFileClip, TextClip, CompositeVideoClip
 import streamlit as st
-import whisper
-import pickle
+from faster_whisper import WhisperModel
+import time
 
 filename="videofile"
 def save_uploadedfile(uploadedfile):
@@ -55,7 +55,7 @@ def video2mp3(video_file, output_ext="mp3"):
 def translate(audio , model):
     options = dict(beam_size=5, best_of=5)
     translate_options = dict(task="translate", **options)
-    result = model.transcribe(audio_file,**translate_options)
+    result,info = model.transcribe(audio_file,**translate_options)
     return result
 
 def format_timestamp(time):
@@ -79,20 +79,27 @@ def write_srt(segments,filename):
 
     for segment in segments:
           file1.write( f"{index}\n"
-          f"{format_timestamp(segment['start'])} --> "
-          f"{format_timestamp(segment['end'])}\n"
-          f"{segment['text'].strip().replace('-->', '->')}\n\n",)
+          f"{format_timestamp(segment.start)} --> "
+          f"{format_timestamp(segment.end)}\n"
+          f"{segment.text.strip().replace('-->', '->')}\n\n",)
           index+=1
+
+
+def progressbar():
+    my_bar = st.progress(0)
+    for percent_complete in range(100):
+        time.sleep(0.01)
+        my_bar.progress(percent_complete + 1)
 
 print("hello")
 st.write("hello")
 
-model=whisper.load_model('medium')
-print('model loaded')
-
-
 uploaded_file = st.file_uploader("Upload your file here...")
 
+model_size = "large-v2"
+
+# or run on CPU with INT8
+model = WhisperModel(model_size, device="cpu", compute_type="int8")
 
 if uploaded_file:
             save_uploadedfile(uploaded_file)
@@ -101,52 +108,21 @@ if uploaded_file:
             input_video = filename
             audio_file = video2mp3(input_video)
 
+            progressbar()
+
             result = translate(audio_file,model) 
 
             print('audio translated')   
             subtitle_filename='subtitles.txt'
-            write_srt(result['segments'],subtitle_filename)
+            write_srt(result,subtitle_filename)
 
             print('subtitle generated')
-            
-                        # Load video and SRT file
-            video = VideoFileClip(filename)
-            subtitles = pysrt.open(srtfilename)
 
-            begin,end= mp4filename.split(".mp4")
-            output_video_file = begin+'_subtitled'+".mp4"
-
-            print ("Output file name: ",output_video_file)
-
-            # Create subtitle clips
-            subtitle_clips = create_subtitle_clips(subtitles,video.size)
-
-            # Add subtitles to the video
-            final_video = CompositeVideoClip([video] + subtitle_clips)
-
-            # Write output video file
-            final_video.write_videofile(output_video_file)
-
-            video_file = open(output_video_file, 'rb')
-            video_bytes = video_file.read()
-
-
-            with open(output_video_file, "rb") as file:
+            with open(subtitle_filename, "rb") as file:
                 btn = st.download_button(
-                        label="Download video",
+                        label="Download file",
                         data=file,
-                        file_name="video.mp4"
+                        file_name="subtitles.txt"
                     )
 
             st.stop()
-
-
-# from IPython.display import HTML
-# from base64 import b64encode
-# mp4 = open(output_video_file,'rb').read()
-# data_url = "data:video/mp4;base64," + b64encode(mp4).decode()
-# HTML("""
-# <video width=400 controls>
-#       <source src="%s" type="video/mp4">
-# </video>
-# """ % data_url)
