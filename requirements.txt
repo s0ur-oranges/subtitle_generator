@@ -14,6 +14,7 @@ attrs==21.4.0
 audioread==3.0.0
 autobahn==23.6.2
 Automat==22.10.0
+av==10.0.0
 backcall==0.2.0
 backoff==2.2.1
 base58==2.1.1
@@ -29,8 +30,12 @@ charset-normalizer==2.0.12
 click==7.1.2
 cohere==4.9.0
 colorama==0.4.4
+coloredlogs==15.0.1
 constantly==15.1.0
+crispy-bootstrap4==2022.1
+crispy-tailwind==0.5.0
 cryptography==41.0.3
+ctranslate2==3.18.0
 cycler==0.11.0
 daphne==3.0.2
 debugpy==1.6.2
@@ -43,6 +48,7 @@ django-crispy-forms==2.0
 djangorestframework==3.14.0
 entrypoints==0.4
 executing==0.8.3
+faster-whisper==0.7.1
 fastjsonschema==2.15.3
 filelock==3.12.2
 Flask==2.0.3
@@ -59,6 +65,7 @@ google-pasta==0.2.0
 grpcio==1.44.0
 h5py==3.6.0
 huggingface-hub==0.15.1
+humanfriendly==10.0
 hyperlink==21.0.0
 idna==3.3
 image==1.5.33
@@ -110,8 +117,9 @@ nltk==3.5
 nomic==1.1.14
 notebook==6.4.12
 numba==0.56.4
-numpy==1.21.1
+numpy==1.23.0
 oauthlib==3.2.0
+onnxruntime==1.15.1
 openai-whisper @ git+https://github.com/openai/whisper.git@e8622f9afc4eba139bf796c210f5c01081000472
 opencv-python==4.7.0.72
 opt-einsum==3.3.0
@@ -139,6 +147,7 @@ pydeck==0.7.1
 Pygments==2.15.1
 pyOpenSSL==23.2.0
 pyparsing==3.0.7
+pyreadline3==3.4.1
 pyrsistent==0.18.1
 pysrt==1.1.2
 python-dateutil==2.8.2
