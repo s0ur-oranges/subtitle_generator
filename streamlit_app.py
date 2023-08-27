@@ -152,8 +152,7 @@ if nav == 'Generate subtitles':
                                 
                                     label="Download file",
                                     data=file,
-                                    file_name="subtitles.txt",
-                                    label_visibility="collapsed"
+                                    file_name="subtitles.txt"
                                 )
 
                         st.stop()
