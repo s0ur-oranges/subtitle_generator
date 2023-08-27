@@ -25,15 +25,5 @@ pip install -r requirements.txt
 To run the app use the following command:
 
 ```bash
-bash run.sh
-```
-
-Another way:
-
-```bash
 streamlit run subtitle_generator/streamlit_app.py
 ```
-
-
-
-Using the file , subtitles can be imposed on any video using any standard video player application.
