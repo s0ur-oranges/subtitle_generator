@@ -6,13 +6,34 @@ Imagine watching a video in a language you don't understand, but with our app, y
 
 Powered by Whisper AI, our app listens to the spoken words in the video and expertly converts them into accurate and contextually relevant English subtitles. It's like having your own personal interpreter working in real-time, enabling you to enjoy content from around the world without missing out on any crucial information.
 
-## How to use the app?
-Navigate to the 'Generate subtitles' page using navigation bar on the left , and upload the video file.
+## Setup locally
 
-Choose the whisper model size
+1. Clone repo:
 
-Upload your file (limit is 500 mb)
+```bash
+git clone https://github.com/s0ur-oranges/subtitle_generator.git
+```
 
-Your subtitles.txt file will be downloaded
+2. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+## Usage
+
+To run the app use the following command:
+
+```bash
+bash run.sh
+```
+
+Another way:
+
+```bash
+streamlit run subtitle_generator/streamlit_app.py
+```
+
+
 
 Using the file , subtitles can be imposed on any video using any standard video player application.
