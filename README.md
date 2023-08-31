@@ -6,6 +6,9 @@ Imagine watching a video in a language you don't understand, but with our app, y
 
 Powered by Whisper AI, our app listens to the spoken words in the video and expertly converts them into accurate and contextually relevant English subtitles. It's like having your own personal interpreter working in real-time, enabling you to enjoy content from around the world without missing out on any crucial information.
 
+You can demo the apllication here: https://huggingface.co/spaces/andromeda123/captionscraft
+
+
 ## Setup locally
 
 1. Clone repo:
