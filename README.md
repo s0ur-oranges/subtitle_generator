@@ -6,7 +6,11 @@ Imagine watching a video in a language you don't understand, but with our app, y
 
 Powered by Whisper AI, our app listens to the spoken words in the video and expertly converts them into accurate and contextually relevant English subtitles. It's like having your own personal interpreter working in real-time, enabling you to enjoy content from around the world without missing out on any crucial information.
 
-[!https://github.com/s0ur-oranges/subtitle_generator/blob/main/assets/s1.png]
+![1](https://github.com/s0ur-oranges/subtitle_generator/blob/main/assets/s1.png)
+
+![2](https://github.com/s0ur-oranges/subtitle_generator/blob/main/assets/s2.png)
+
+![3](https://github.com/s0ur-oranges/subtitle_generator/blob/main/assets/s3.png)
 
 
 
